@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var email: String = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Color.black.ignoresSafeArea(edges: .all)
+            VStack {
+                Text("Login")
+                    .foregroundStyle(.white)
+                    .font(.system(size: 40, weight: .bold))
+                
+                Image("LOGO")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200)
+                
+                TextField("Digite seu e-mail:", text: $email)
+                    .textFieldStyle(.roundedBorder)
+                    .cornerRadius(22)
+                    .foregroundStyle(.black)
+                    .keyboardType(.emailAddress)
+                    .padding(.horizontal, 20)
+                
+                Spacer()
+            }
         }
-        .padding()
     }
 }
 
